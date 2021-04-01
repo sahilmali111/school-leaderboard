@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h2>Add Marks</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Student Roll No:</label>
+                <input type="number" class="form-control" placeholder="Enter Roll No" name="rollno">
+                {% if error %}
+                <label>{{ error }}</label>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label>Student Name:</label>
+                <input type="text" class="form-control" placeholder="Enter Student Name" name="name">
+            </div>
+            <div class="form-group">
+                <label>Marks in Maths:</label>
+                <input type="number" class="form-control" placeholder="Enter Maths Marks" name="maths" min="0"
+                       max="100">
+            </div>
+            <div class="form-group">
+                <label>Marks in Physics:</label>
+                <input type="number" class="form-control" placeholder="Enter Physics Marks" name="physics" min="0"
+                       max="100">
+            </div>
+            <div class="form-group">
+                <label>Marks in Chimistry:</label>
+                <input type="number" class="form-control" placeholder="Enter Chemistry Marks" name="chemistry" min="0"
+                       max="100">
+            </div>
+
+            <button type="submit" class="btn btn-default"
+                    style="background: #ef233c; color: #f8f9fa; padding: 8px 20px; margin-bottom: 50px;">Submit
+            </button>
+
+        </form>
+    </div>
+{% endblock %}

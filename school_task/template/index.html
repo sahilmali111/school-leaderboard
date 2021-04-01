@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row align-items-center mt-3 mb-5">
+            <div class="col-md-6">
+                <h2> 🏆 Top 3 Rankers </h2>
+            </div>
+
+<!--            <div class="col-md-6 text-center">-->
+<!--                <input id="myInput" type="text" placeholder="Search.." autocomplete="off">-->
+<!--            </div>-->
+        </div>
+
+
+        <!--  <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>-->
+        <table class="table table-striped mb-5 tablesorter" id="marks">
+            <thead>
+            <tr>
+                <th>Ranks</th>
+                <th> Student Name</th>
+                <th>Percentage</th>
+
+            </tr>
+            </thead>
+            <tbody id="myTable">
+
+            {% for data in student_marks %}
+                {% if forloop.counter <= 3 %}
+                    <tr>
+                        <td>{{ data.rank }}</td>
+                        <td>{{ data.name }}</td>
+                        <td>{{ data.percentage }}</td>
+
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <hr>
+
+        <div class="d-flex justify-content-between custom-flex">
+            <div>
+                <h3> 🏆 Physics</h3>
+                {% for i in student_marks %}
+                <p>{{ i.namep }}</p>
+                <p class="top-marks">{{ i.maxp }}</p>
+                {% endfor %}
+                <span style="font-size: 40px">/100</span>
+            </div>
+
+            <div>
+                <h3> 🏆 Chemistry</h3>
+                {% for i in student_marks %}
+                <p>{{ i.namec }}</p>
+                <p class="top-marks">{{ i.maxc }}</p>
+                {% endfor %}
+               <span style="font-size: 40px">/100</span>
+            </div>
+
+            <div>
+                <h3> 🏆 Maths</h3>
+
+                {% for i in student_marks %}
+                <p>{{ i.namem }} </p>
+                <p class="top-marks">{{ i.maxm }}</p>
+               {% endfor %}
+                <span style="font-size: 40px">/100</span>
+
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+{% endblock %}

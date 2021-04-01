@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Portal App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href=https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'leaderboard.js' %}"></script>
+    <link rel="stylesheet"
+          href="{% static 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %}"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <style>
+
+        .fa {
+            margin-bottom: 10px;
+            margin-right: 10px;
+        }
+
+        small {
+            display: block;
+            line-height: 1.428571429;
+            color: #999;
+        }
+
+        body {
+            font-family: 'Roboto Slab', serif;
+            background: #f8f9fa;
+        }
+
+        nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+            background-color: #edf2f4 !important;
+
+        }
+
+        #myInput {
+            /*border: none;*/
+            background: #f8f9fa;
+            padding: 10px;
+            border-top: black !important;
+            border-right: #f8f9fa;
+            border-left: #f8f9fa;
+        }
+
+        #myInput:focus {
+            /*background-color: #edf2f4 ;*/
+            outline: none;
+
+        }
+
+        .list-header {
+            list-style: none;
+            margin-bottom: 0;
+            padding-left: 0px;
+        }
+
+        .list-header li {
+            display: inline-block;
+            padding: 0 25px ;
+        }
+
+        .app-name {
+            font-size: 30px;
+            color: #ef233c;
+        }
+
+        .app-name a {
+            font-size: 30px;
+            color: #ef233c;
+        }
+
+        .app-name a:hover {
+            text-decoration: none;
+        }
+
+        .app-name a {
+            border-bottom: 2px solid #edf2f4 ;
+        }
+
+        .app-name a:hover {
+            border-bottom: 2px solid #ef233c;
+        }
+
+        .side-item a {
+            color: black;
+            font-size: 20px;
+        }
+
+        header {
+            margin-bottom: 2em;
+        }
+
+        .custom-flex {
+            padding-bottom: 3em ;
+        }
+
+         hr {
+            position: relative;
+            top: 10px;
+            border: none;
+            height: 3px;
+            background: black;
+            margin-bottom: 50px;
+
+        }
+
+        .top-marks {
+            font-size: 18px;
+        }
+
+        .table-arrow th:after {
+            content: ' \2193';
+        }
+    </style>
+</head>
+<body>
+
+
+<header style="background: #edf2f4; text-align: center;padding: 30px 0">
+
+
+    <ul class="list-header">
+        <li class="side-item"><a href="leaderboard"> Leaderboard</a></li>
+        <li class="app-name"><a href="/"> Student Portal</a></li>
+        <li class="side-item"><a href="student_data"> Add Marks</a></li>
+    </ul>
+</header>
+
+
+{% block content %}
+
+{% endblock %}
+
+<footer style="background: #edf2f4; text-align: center;padding: 20px 0">
+    Handcrafted with ❤️ by Sahil
+</footer>
+<script>
+    // search code
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+</body>
+</html>
